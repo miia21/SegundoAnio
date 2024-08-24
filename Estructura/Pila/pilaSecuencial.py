@@ -1,6 +1,6 @@
 import numpy as np
 
-class pila:
+class pilaS:
     __item: np.ndarray
     __tope: int
     __cant: int

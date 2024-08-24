@@ -1,7 +1,7 @@
-from pilaSecuencial import pila
+from pilaSecuencial import pilaS
 
 if __name__ == "__main__":
-    p = pila()
+    p = pilaS()
     x=int(input("Ingrese un numero\n"))
     if x == 0:
         print("0 0 0 0\n")
