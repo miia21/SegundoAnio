@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Entrega</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .btn-salir {
+          background-color: red;
+          color: white;
+          padding: 8px 16px;
+          font-size: 0.9rem;
+          float: right;
+        }
+      </style>
+</head>
+<body>
+    <div class="container my-5">
+        <h1 class="text-center">Registrar Entrega del Paquete</h1>
+        <div class="card bg-white border-secondary">
+            <div class="card-body">
+                <h2>Registrar Entrega</h2>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="alert alert-success" role="alert">
+                            {{ messages[0] }}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+                <form action="{{ url_for('entregarpaquete') }}" method="POST">
+                    <div class="form-group">
+                        <label for="estado">Estado de Entrega:</label>
+                        <select class="form-control" id="estado" name="estado" required>
+                            <option value="Entregado">Entregado</option>
+                            <option value="No Entregado">No Entregado</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="observaciones">Observaciones:</label>
+                        <textarea class="form-control" id="observaciones" name="observaciones" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Registrar</button>
+                    <button type="button" class="btn btn-salir" onclick="location.href='/repartidormenu'">Volver</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

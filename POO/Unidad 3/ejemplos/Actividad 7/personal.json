@@ -1,0 +1,170 @@
+{
+    "clase": "lista",
+    "agentes": [
+        {
+            "clase": "docenteInvestigador",
+            "atributos": {
+                "cuil": "20-253632387-3",
+                "nombre": "Pedro",
+                "apellido": "Fernandez",
+                "sueldoBasico": 534722.43,
+                "antiguedad": 4,
+                "carrera": "LSI",
+                "cargo": "simple",
+                "catedra": "Bases de datos",
+                "areaInvestigacion": "LSI",
+                "tipoInvestigacion": "simple",
+                "aporteExtra": 16721.69,
+                "categoriaIncentivo": 5
+            }
+        },
+        {
+            "clase": "docenteInvestigador",
+            "atributos": {
+                "cuil": "20-323632387-9",
+                "nombre": "Pedro",
+                "apellido": "Martinez",
+                "sueldoBasico": 584719.43,
+                "antiguedad": 4,
+                "carrera": "LSI",
+                "cargo": "semiexclusivo",
+                "catedra": "Bases de datos",
+                "areaInvestigacion": "LSI",
+                "tipoInvestigacion": "semiexclusivo",
+                "aporteExtra": 96981.69,
+                "categoriaIncentivo": 4
+            }
+        },
+        {
+            "clase": "docenteInvestigador",
+            "atributos": {
+                "cuil": "20-453633787-2",
+                "nombre": "Pedro",
+                "apellido": "Sanchez",
+                "sueldoBasico": 304719.43,
+                "antiguedad": 4,
+                "carrera": "LSI",
+                "cargo": "semiexclusivo",
+                "catedra": "Bases de datos",
+                "areaInvestigacion": "LSI",
+                "tipoInvestigacion": "semiexclusivo",
+                "aporteExtra": 12981.69,
+                "categoriaIncentivo": 3
+            }
+        },
+        {
+            "clase": "docenteInvestigador",
+            "atributos": {
+                "cuil": "20-453632387-5",
+                "nombre": "Pedro",
+                "apellido": "Rodriguez",
+                "sueldoBasico": 374719.43,
+                "antiguedad": 4,
+                "carrera": "LSI",
+                "cargo": "simple",
+                "catedra": "Bases de datos",
+                "areaInvestigacion": "LSI",
+                "tipoInvestigacion": "simple",
+                "aporteExtra": 25981.69,
+                "categoriaIncentivo": 3
+            }
+        },
+        {
+            "clase": "docenteInvestigador",
+            "atributos": {
+                "cuil": "27-457632687-5",
+                "nombre": "Mia",
+                "apellido": "Pastor",
+                "sueldoBasico": 324719.43,
+                "antiguedad": 4,
+                "carrera": "LSI",
+                "cargo": "simple",
+                "catedra": "Bases de datos",
+                "areaInvestigacion": "LSI",
+                "tipoInvestigacion": "simple",
+                "aporteExtra": 35789.69,
+                "categoriaIncentivo": 2
+            }
+        },
+        {
+            "clase": "investigador",
+            "atributos": {
+                "cuil": "20-272872619-3",
+                "nombre": "Gabriel",
+                "apellido": "Perez",
+                "sueldoBasico": 1324719.43,
+                "antiguedad": 30,
+                "areaInvestigacion": "Atmosfera",
+                "tipoInvestigacion": "Laboratorio"
+            }
+        },
+        {
+            "clase": "docente",
+            "atributos": {
+                "cuil": "20-43342543-3",
+                "nombre": "Tomas",
+                "apellido": "Spesia",
+                "sueldoBasico": 765342.99,
+                "antiguedad": 15,
+                "carrera": "Algoritmos y Resolucion de Problemas",
+                "cargo": "",
+                "catedra": null
+            }
+        },
+        {
+            "clase": "docenteInvestigador",
+            "atributos": {
+                "cuil": "20-452663619-1",
+                "nombre": "German",
+                "apellido": "Reta",
+                "sueldoBasico": 1024719.43,
+                "antiguedad": 20,
+                "carrera": "Geologia",
+                "cargo": "exclusivo",
+                "catedra": "Paleontologia",
+                "areaInvestigacion": "Geologia",
+                "tipoInvestigacion": "exclusivo",
+                "aporteExtra": 352789.69,
+                "categoriaIncentivo": 1
+            }
+        },
+        {
+            "clase": "personalApoyo",
+            "atributos": {
+                "cuil": "20-45885130-4",
+                "nombre": "Nicolas",
+                "apellido": "Reynoso",
+                "sueldoBasico": 20.5,
+                "antiguedad": 1,
+                "categoria": 13
+            }
+        },
+        {
+            "clase": "personal",
+            "atributos": {
+                "cuil": "20-46886131-5",
+                "nombre": "Lucas",
+                "apellido": "Valiente",
+                "sueldoBasico": 124532.01,
+                "antiguedad": 2
+            }
+        },
+        {
+            "clase": "docenteInvestigador",
+            "atributos": {
+                "cuil": "20-44991289-7",
+                "nombre": "Joaquin",
+                "apellido": "Sasso",
+                "sueldoBasico": 457895.84,
+                "antiguedad": 15,
+                "carrera": "Geologia",
+                "cargo": "exclusivo",
+                "catedra": "Piedras",
+                "areaInvestigacion": "Geologia",
+                "tipoInvestigacion": "exclusivo",
+                "aporteExtra": 34552.44,
+                "categoriaIncentivo": 2
+            }
+        }
+    ]
+}

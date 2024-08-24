@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleccionar Sucursal de Destino</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .btn-salir {
+          background-color: red;
+          color: white;
+          padding: 8px 16px;
+          font-size: 0.9rem;
+          float: left;
+        }
+      </style>
+</head>
+<body>
+    <div class="container my-5">
+        <h1 class="text-center">Seleccionar Sucursal de Destino</h1>
+        <div class="card bg-white border-secondary">
+            <div class="card-body">
+                <h2>Listado de Sucursales</h2>
+                <ul class="list-group">
+                    {% for sucursal in sucursales %}
+                    <li class="list-group-item">
+                        {{ sucursal.numero }} - {{ sucursal.provincia }} - {{ sucursal.localidad }}
+                        <a href="{{ url_for('paquetesSinEntregar', sucursalid=sucursal.id) }}" class="btn btn-primary btn-sm float-right">Ver Paquetes no Entregados</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <button type="button" class="btn btn-salir" onclick="location.href='despachante'">Volver</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

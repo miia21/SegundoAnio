@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asignación Exitosa</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .message-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      max-width: 600px;
+      padding: 20px;
+      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+  </style>
+</head>
+<body>
+  <div class="container my-5">
+    <div class="message-box">
+      <h2>Asignación de Paquetes Exitosa</h2>
+      <p>Los paquetes han sido asignados correctamente al repartidor.</p>
+      <a href="{{ url_for('despachante') }}" class="btn btn-primary">Continuar</a>
+    </div>
+  </div>
+</body>
+</html>

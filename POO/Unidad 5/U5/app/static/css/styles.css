@@ -1,0 +1,38 @@
+css
+body {
+  background-color: #333; /* Fondo oscuro */
+  color: #fff; /* Texto blanco */
+}
+
+.card {
+  background-color: #444; /* Fondo oscuro */
+  border: 1px solid #666; /* Borde oscuro */
+}
+
+.card-body {
+  background-color: #555; /* Fondo oscuro */
+  padding: 20px; /* Espaciado interior */
+}
+
+.card-title {
+  color: #fff; /* Texto blanco */
+  font-size: 24px; /* Tamaño de letra */
+}
+
+.card-text {
+  color: #ccc; /* Texto gris */
+  font-size: 16px; /* Tamaño de letra */
+}
+
+.form-control {
+  background-color: #555; /* Fondo oscuro */
+  border: 1px solid #666; /* Borde oscuro */
+  color: #fff; /* Texto blanco */
+}
+
+.form-control:focus {
+  background-color: #444; /* Fondo oscuro */
+  border-color: #333; /* Borde oscuro */
+  box-shadow: 0 0 0 2px #333; /* Sombra */
+}
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LogiPack - Despachante</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .custom-link {
+      border: 2px solid blue;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+      display: block;
+      margin: 10px 0;
+      color: white;
+      background-color: blue;
+      text-decoration: none;
+    }
+    .custom-link:hover {
+      background-color: darkblue;
+    }
+  </style>
+</head>
+<body>
+  <div class="container my-5">
+    <div class="bg-white text-dark py-3">
+      <div class="container">
+        <h1 class="text-center">LogiPack - Repartidor</h1>
+      </div>
+    </div>
+    <h2 class="text-center mb-4">Menú</h2>
+    <div class="card bg-white border-secondary">
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <a href="{{ url_for('ingresarpaquete') }}" class="custom-link">Registrar la entrega de un Paquete</a>
+          </li>
+        </ul>
+        <button class="btn btn-primary mt-3" onclick="location.href='/'">Volver al Inicio</button>
+        <a href="{{ url_for('salir') }}" class="btn btn-danger mt-3">Cerrar Sesión</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

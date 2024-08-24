@@ -1,0 +1,15 @@
+{% extends "baseTemplate.html" %}
+{% block title %}Menu{% endblock %}
+{% block content %}
+    <div class="menu1">
+        <h1>¿Que desea hacer?</h1>
+    </div>
+    <div class="menu2">
+        <ul><a href="{{ url_for('recepcion') }}">Registrar paquete</a></ul>
+        <ul><a href="{{ url_for('salida') }}">Salida de transporte</a></ul>
+        <ul><a href="{{ url_for('llegada') }}">Llegada de transporte</a></ul>
+    </div>
+    <div class="boton">
+        <a href="{{ url_for('inicio') }}"><button>Atras</button></a>
+    </div>
+{% endblock %}

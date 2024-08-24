@@ -1,0 +1,20 @@
+{% extends "baseTemplate.html" %}
+{% block title %}Llegada Transporte{% endblock %}
+{% block content %}
+    <div class="suc1">
+        <h1>Transportes</h1>
+        <h3>Seleccione el transporte que llegó a la sucursal</h3>
+        <p>Numero de transporte - Fecha y hora de salida</p>
+        <form method="post">
+            <ul class="paq1">
+                {% for transporte in transportes %}
+                <label><input type="radio" name="id" value="{{transporte.id}}">{{transporte.numerotransporte}} - {{transporte.fechahorasalida}}</label>
+                {% endfor %}
+            </ul>
+            <button type="submit">Registrar llegada</button>
+        </form>
+    </div>
+    <div class="boton">
+        <a href="{{ url_for('menu') }}"><button>Atras</button></a>
+    </div>
+{% endblock %}

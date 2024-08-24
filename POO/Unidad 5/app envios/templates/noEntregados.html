@@ -1,0 +1,20 @@
+{% extends "baseTemplate.html" %}
+{% block title %}No Entregados{% endblock %}
+{% block content %}
+    <div class="suc1">
+        <h1>Paquetes no entregados</h1>
+        <h3>Seleccione los paquetes a enviar</h3>
+        <p>Numero de envio - Direccion de destino</p>
+        <form method="post" >
+            <ul class="paq1">
+                {% for paquete in paquetes %}
+                    <label><input type="checkbox" name="paquetes" value="{{paquete.id}}">{{paquete.numeroenvio}} - {{paquete.dirdestinatario}}</label>
+                {% endfor %}
+            </ul>
+            <button type="submit">Registrar transporte</button>
+        </form>
+    </div>
+    <div class="boton">
+        <a href="{{ url_for('salida') }}"><button>Atras</button></a>
+    </div>
+{% endblock %}

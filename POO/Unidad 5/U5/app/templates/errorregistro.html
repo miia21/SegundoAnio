@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error al Registrar Transporte</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container my-5">
+        <div class="card bg-white border-danger">
+            <div class="card-body">
+                <h2 class="text-danger">Error al Registrar Transporte</h2>
+                <p>Hubo un problema al intentar registrar el transporte de los paquetes hacia la sucursal.</p>
+                <a href="{{ url_for('despachante') }}" class="btn btn-primary">Volver a la Página Principal</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

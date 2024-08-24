@@ -1,0 +1,18 @@
+{% extends "baseTemplate.html" %}
+{% block title %}Sucursales{% endblock %}
+{% block content %}
+    <div class="suc1">
+        <h1>Seleccione la sucursal</h1>
+        <form action="{{ url_for('menu') }}" method="POST">
+            <div>
+                <select class="suc2" name="id" required>
+                    <option hidden></option>
+                    {% for sucursal in sucursales %}
+                        <option value="{{ sucursal.id }}">{{sucursal.numero}} - {{sucursal.provincia}} - {{sucursal.localidad}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit">Seleccionar</button>
+        </form>
+    </div>
+{% endblock %}

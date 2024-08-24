@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LogiPack - Selección</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .btn-custom {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: 2px solid black;
+    }
+    .btn-despachante {
+      background-color: white;
+      color: black;
+    }
+    .btn-repartidor {
+      background-color: blue;
+      color: white;
+    }
+    .btn-salir {
+      background-color: red;
+      color: white;
+      margin-top: 20px;
+      padding: 5px 15px;
+      font-size: 0.9rem;
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+    }
+    .card-body {
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <div class="container my-5">
+    <div class="bg-white text-dark py-3">
+      <div class="container">
+        <h1 class="text-center">LogiPack - Selección</h1>
+      </div>
+    </div>
+    <h2 class="text-center mb-4">¿Qué tipo de usuario eres?</h2>
+    <div class="card bg-white border-secondary">
+      <div class="card-body text-center">
+        <button class="btn btn-custom btn-despachante mx-2" onclick="location.href='http://127.0.0.1:5000/despachante'">Despachante</button>
+        <button class="btn btn-custom btn-repartidor mx-2" onclick="location.href='http://127.0.0.1:5000/repartidor_Login'">Repartidor</button>
+        <button class="btn btn-custom btn-salir" onclick="location.href='http://127.0.0.1:5000/'">Salir</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

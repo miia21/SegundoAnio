@@ -1,0 +1,16 @@
+{% extends "baseTemplate.html" %}
+{% block title %}Salida Transporte{% endblock %}
+{% block content %}
+    <div class="suc1">
+        <h1>Sucursales</h1>
+        <h3>Seleccione la sucursal para ver los pedidos no entregados</h3>
+        <ul class="suc3">
+            {% for sucursal in sucursales %}
+                <a class="suc4" href="{{ url_for('noEntregados', sucursalId=sucursal.id) }}">{{ sucursal.numero }} - {{ sucursal.provincia }} - {{ sucursal.localidad }}</a>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="boton">
+        <a href="{{ url_for('menu') }}"><button>Atras</button></a>
+    </div>
+{% endblock %}

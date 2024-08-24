@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paquetes no Entregados</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .btn-salir {
+          background-color: red;
+          color: white;
+          padding: 8px 16px;
+          font-size: 0.9rem;
+          float: right;
+        }
+      </style>
+</head>
+<body>
+    <div class="container my-5">
+        <h1 class="text-center">Paquetes no Entregados de {{ sucursal.numero }} - {{ sucursal.provincia }} - {{ sucursal.localidad }}</h1>
+        <div class="card bg-white border-secondary">
+            <div class="card-body">
+                <h2>Listado de Paquetes no Entregados</h2>
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="numerotransporte" class="form-label">Número de Transporte:</label>
+                        <input type="text" class="form-control" id="numerotransporte" name="numerotransporte" required>
+                    </div>
+                    <ul class="list-group">
+                        {% for paquete in paquetes %}
+                            <li class="list-group-item">
+                                <input type="checkbox" name="paquete" value="{{ paquete.id }}">
+                                Número de Envío: {{ paquete.numeroenvio }} - Destinatario: {{ paquete.nomdestinatario }} - Dirección: {{ paquete.dirdestinatario }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <button type="submit" class="btn btn-success mt-3">Registrar Numero de Transporte que realizara la entrega</button>
+                    <button type="button" class="btn btn-salir" onclick="location.href='/salidatransporte'">Volver</button>                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ingresar Paquete</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .btn-salir {
+          background-color: red;
+          color: white;
+          padding: 8px 16px;
+          font-size: 0.9rem;
+          float: right;
+        }
+      </style>
+</head>
+<body>
+    <div class="container my-5">
+        <h1 class="text-center">Ingresar Número de Envío</h1>
+        <div class="card bg-white border-secondary">
+            <div class="card-body">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ 'success' if category == 'success' else 'danger' }}" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <form action="{{ url_for('ingresarpaquete') }}" method="POST">
+                    <div class="form-group">
+                        <label for="numeroenvio">Número de Envío:</label>
+                        <input type="text" class="form-control" id="numeroenvio" name="numeroenvio" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Buscar</button>
+                    <button type="button" class="btn btn-salir" onclick="location.href='/repartidormenu'">Volver</button>
+                </form>
+                {% if error %}
+                    <div class="alert alert-danger mt-3" role="alert">
+                        {{ error }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

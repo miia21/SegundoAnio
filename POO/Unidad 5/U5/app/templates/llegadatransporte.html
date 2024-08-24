@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Llegada de Transporte</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .btn-salir {
+          background-color: red;
+          color: white;
+          padding: 8px 16px;
+          font-size: 0.9rem;
+          float: right;
+        }
+      </style>
+</head>
+<body>
+    <div class="container my-5">
+        <h1 class="text-center">Registrar Llegada de Transporte</h1>
+        <div class="card bg-white border-secondary">
+            <div class="card-body">
+                <h2>Transportes Pendientes de Llegada</h2>
+                <form action="{{ url_for('llegadatransporte') }}" method="POST">
+                    <div class="form-group">
+                        <label for="transporteSelect">Seleccione el transporte que ha llegado</label>
+                        <select class="form-control" id="transporteSelect" name="transporte_id" required>
+                            {% for transporte in transportes %}
+                                <option value="{{ transporte.id }}">
+                                    Transporte #{{ transporte.numerotransporte }} - Salida: {{ transporte.fechahorasalida }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Registrar Llegada</button>
+                    <button type="button" class="btn btn-salir" onclick="location.href='/despachante'">Volver</button>
+
+                </form>
+                {% for mensaje in mensajes %}
+                    <div class="alert alert-success mt-3" role="alert">
+                        {{ mensaje | safe }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

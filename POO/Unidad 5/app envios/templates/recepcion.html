@@ -1,0 +1,28 @@
+{% extends "baseTemplate.html" %}
+{% block title %}Paquete{% endblock %}
+{% block content %}
+    <div class="rec1">
+        <h1>Registrar paquete</h1>
+    </div>
+    <div>
+        <form class="rec2" action="/paqueteRegistrado" method="post">
+            <div class="form-input">
+                <label>Peso del paquete</label>
+                <input type="text" name="peso" required/>
+            </div>
+            <div class="form-input">
+                <label>Nombre del destinatario</label>
+                <input type="text" name="nom" required/>
+            </div>
+            <div class="form-input">
+                <label>Direccion del destinatario</label>
+                <input type="text" name="dir" required/>
+            </div>
+            <button type="submit">Registrar paquete</button>
+        </form>
+    </div>
+    <div class="boton">
+        <a href="{{ url_for('menu') }}"><button>Atras</button></a>
+    </div>
+    
+{% endblock %}

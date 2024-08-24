@@ -1,0 +1,69 @@
+{
+    "__class__": "gestorJugador",
+    "jugadores": [
+        {
+            "__class__": "jugador",
+            "__atributos__": {
+                "nombre": "German",
+                "puntaje": 5,
+                "fecha": "2024-06-24 17:21:28"
+            }
+        },
+        {
+            "__class__": "jugador",
+            "__atributos__": {
+                "nombre": "Mia",
+                "puntaje": 4,
+                "fecha": "2024-06-24 15:00:56"
+            }
+        },
+        {
+            "__class__": "jugador",
+            "__atributos__": {
+                "nombre": "Mia",
+                "puntaje": 4,
+                "fecha": "2024-06-24 17:26:07"
+            }
+        },
+        {
+            "__class__": "jugador",
+            "__atributos__": {
+                "nombre": "Alejo",
+                "puntaje": 3,
+                "fecha": "2024-06-24 15:02:02"
+            }
+        },
+        {
+            "__class__": "jugador",
+            "__atributos__": {
+                "nombre": "Mia",
+                "puntaje": 3,
+                "fecha": "2024-06-24 17:06:41"
+            }
+        },
+        {
+            "__class__": "jugador",
+            "__atributos__": {
+                "nombre": "mia",
+                "puntaje": 3,
+                "fecha": "2024-06-24 17:27:01"
+            }
+        },
+        {
+            "__class__": "jugador",
+            "__atributos__": {
+                "nombre": "German",
+                "puntaje": 2,
+                "fecha": "2024-06-24 18:14:29"
+            }
+        },
+        {
+            "__class__": "jugador",
+            "__atributos__": {
+                "nombre": "Mia",
+                "puntaje": 3,
+                "fecha": "2024-06-24 19:26:25"
+            }
+        }
+    ]
+}
