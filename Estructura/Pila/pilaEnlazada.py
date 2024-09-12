@@ -28,23 +28,8 @@ class pilaE:
             return x
         
     def mostrar(self):
-        if (self.vacia()):
-            raise Exception("Pila vacia")
-        else:
-            actual = self.__tope
-            while actual is not None:
-                print(actual.getObjeto(), end=" ")
-                actual = actual.getSiguiente()
-            print()
-
-    def __iter__(self):
-        self._iter_actual = self.__tope
-        return self
-    
-    def __next__(self):
-        if self._iter_actual is None:
-            raise StopIteration
-        else:
-            elemento = self._iter_actual.getObjeto()
-            self._iter_actual = self._iter_actual.getSiguiente()
-            return elemento
+        actual = self.__tope
+        while actual is not None:
+            print(actual.getObjeto(), end=" ")
+            actual = actual.getSiguiente()
+        print()

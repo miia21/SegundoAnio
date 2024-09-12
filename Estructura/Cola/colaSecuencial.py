@@ -4,13 +4,13 @@ class colaS:
     __item: np.ndarray
     __prim: int
     __ulti: int
-    __tope: int
+    __max: int
     __cant: int
 
     def __init__(self):
         self.__item = np.empty(10, dtype=int)
-        self.__tope = 0
-        self.__cant = 10
+        self.__max = 10
+        self.__cant = 0
         self.__prim = 0
         self.__ulti = -1
 
@@ -18,14 +18,14 @@ class colaS:
         return self.__cant == 0
     
     def lleno(self):
-        return self.__tope == self.__cant
+        return self.__max == self.__cant
     
     def insertar(self, x):
-        if (self.__tope == self.__cant):
+        if (self.lleno()):
             raise Exception("Cola llena")
         else:
             self.__item[self.__ulti] = x
-            self.__ulti = (self.__ulti + 1) % self.__tope
+            self.__ulti = (self.__ulti + 1) % self.__max
             self.__cant += 1
             return x
         

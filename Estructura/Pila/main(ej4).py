@@ -12,10 +12,7 @@ if __name__ == "__main__":
     print("Las torres son:")
     for i in range(3):
         print(f"Torre {i+1}", end=": ")
-        elementos = list(torres[i])
-        elementos.reverse()
-        for dato in elementos:
-            print(dato, end=" ")
+        elementos = torres[i].mostrar()
         print()
     while torre3.vacia() or not torre2.vacia() or not torre1.vacia():
         sacar = int(input("Escriba la torre de la que desea sacar un disco:\n"))
@@ -38,9 +35,6 @@ if __name__ == "__main__":
         print("Las torres son:")
         for i in range(3):
             print(f"Torre {i+1}", end=": ")
-            elementos = list(torres[i])
-            elementos.reverse()
-            for dato in elementos:
-                print(dato, end=" ")
+            elementos = torres[i].mostrar()
             print()
     print("Ganaste")
