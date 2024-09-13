@@ -17,7 +17,6 @@ class listaS:
         return self.__ulti == self.__cant
     
     def insertarPosicion(self, x, p):
-        p=p-1
         if (self.lleno()):
             raise Exception("Lista llena")
         else:
@@ -36,7 +35,6 @@ class listaS:
             return x
         
     def suprimirPosicion(self, p):
-        p=p-1
         if (self.vacia()):
             raise Exception("Lista vacia")
         else:
@@ -55,7 +53,6 @@ class listaS:
             return x
         
     def recuperar(self, p):
-        p=p-1
         if (self.vacia()):
             raise Exception("Lista vacia")
         else:
@@ -96,4 +93,17 @@ class listaS:
                 print(f"{self.__items[i]}\n")
 
         
-    
+if __name__ == "__main__":
+    lista = listaS()
+    lista.insertarPosicion(1, 0)
+    lista.insertarPosicion(2, 1)
+    lista.insertarPosicion(3, 2)
+    lista.insertarPosicion(4, 3)
+    lista.insertarPosicion(5, 4)
+    lista.mostrar()
+    print(lista.suprimirPosicion(3))
+    lista.mostrar()
+    print(lista.recuperar(3))
+    print(lista.buscar(3))
+    print(lista.primerElemento())
+    print(lista.ultimoElemento())

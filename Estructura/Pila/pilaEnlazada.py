@@ -20,7 +20,7 @@ class pilaE:
 
     def suprimir(self):
         if (self.vacia()):
-            return None
+            print("Pila vacia")
         else:
             x = self.__tope.getObjeto()
             self.__tope = self.__tope.getSiguiente()
