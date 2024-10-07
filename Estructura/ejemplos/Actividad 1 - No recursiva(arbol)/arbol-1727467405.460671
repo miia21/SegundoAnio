@@ -1,0 +1,23 @@
+digraph {
+	25 [label=25 shape=circle]
+	25 -> 20
+	20 [label=20 shape=circle]
+	20 -> 10
+	10 [label=10 shape=circle]
+	10 -> 5
+	5 [label=5 shape=circle]
+	5 -> 1
+	1 [label=1 shape=circle]
+	10 -> 15
+	15 [label=15 shape=circle]
+	25 -> 40
+	40 [label=40 shape=circle]
+	40 -> 35
+	35 [label=35 shape=circle]
+	40 -> 50
+	50 [label=50 shape=circle]
+	50 -> 45
+	45 [label=45 shape=circle]
+	50 -> 60
+	60 [label=60 shape=circle]
+}

@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Gowun+Batang:wght@400;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Oswald:wght@200..700&display=swap');
+
+*{
+    font-family: 'Merriweather', serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Merriweather', serif;
+    font-weight: 900 !important;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body{
+    background-color: white;
+    
+}
+
+header{
+    background-color: #240224;
+}
+
+footer{
+    background-color: #240224;
+}
+
+.navbar-nav .nav-link.active:hover {
+    color: #b100b1;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #b100b1;
+}
+
+.icon{
+    color: white;
+    font-size: 25px;
+}
+
+.icon :hover {
+    color: #b100b1;
+}
+
+.btn{
+    background-color: #240224 !important;
+    color: white !important;
+}
+
+.btn:hover{
+    background-color:#b100b1 !important;
+}
+
+.card-img-top{
+    height: 550px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card-img-top:hover{
+    opacity: 0.8;
+}
+
+.card-img{
+    height: 300px;
+    object-fit: cover;
+}
+
+.accordion .accordion-item button{
+    background-color: #240224;
+    color: white;
+}
+
+.accordion .accordion-item button:hover{
+    background-color: #b100b1;
+}
+
+.accordion .accordion-item .accordion-header .accordion-button{
+    font-weight: 900 !important;
+}
+
+.form{
+    max-width: 400px;
+}
+
+#mensaje{
+    resize: none;
+}
+
+.img{
+    height: 250px;
+    margin-top: 40px;
+}
