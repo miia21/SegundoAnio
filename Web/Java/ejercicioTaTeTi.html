@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TA-TE-TI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+        .tablero {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+            gap: 5px;
+            margin-bottom: 20px;
+        }
+        .celda {
+            width: 100px;
+            height: 100px;
+            background-color: #f0f0f0;
+            border: 2px solid #000;
+            font-size: 2em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .celda:hover {
+            background-color: #e0e0e0;
+        }
+        #estado {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        #resetBtn {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="estado">Turno de: X</div>
+        <div class="tablero" id="tablero">
+        </div>
+        <button id="resetBtn">Nuevo Juego</button>
+    </div>
+    <script>
+        const tableroElem = document.getElementById('tablero');
+        const estadoElem = document.getElementById('estado');
+        const resetBtn = document.getElementById('resetBtn');
+        let tablero = ['', '', '', '', '', '', '', '', ''];
+        let jugadorActivo = 'X';
+        let juegoActivo = true;
+
+        const combinaciones = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]
+        ];
+
+        function crearTablero() {
+            tableroElem.innerHTML = '';
+            tablero.forEach((celda, indice) => {
+                const celdaElem = document.createElement('div');
+                celdaElem.classList.add('celda');
+                celdaElem.setAttribute('indiceCelda', indice);
+                celdaElem.addEventListener('click', celdaClick);
+                tableroElem.appendChild(celdaElem);
+            });
+        }
+
+        function celdaClick(elem) {
+            const i = elem.target.getAttribute('indiceCelda');
+            if (tablero[i] !== '' || !juegoActivo) {
+                return;
+            }
+            tablero[i] = jugadorActivo;
+            elem.target.innerText = jugadorActivo;
+            if (ganador()) {
+                estadoElem.innerText = `Jugador ${jugadorActivo} ha ganado!`;
+                juegoActivo = false;
+                return;
+            }
+            if (tablero.every(celda => celda !== '')) {
+                estadoElem.innerText = 'Es un empate!';
+                juegoActivo = false;
+                return;
+            }
+            jugadorActivo = jugadorActivo === 'X' ? 'O' : 'X';
+            estadoElem.innerText = `Turno de: ${jugadorActivo}`;
+        }
+
+        function ganador() {
+            return combinaciones.some(combinacion => {
+                return combinacion.every(i => tablero[i] === jugadorActivo);
+            });
+        }
+
+        function resetGame() {
+            tablero = ['', '', '', '', '', '', '', '', ''];
+            jugadorActivo = 'X';
+            juegoActivo = true;
+            estadoElem.innerText = `Turno de: ${jugadorActivo}`;
+            crearTablero();
+        }
+
+        crearTablero();
+        resetBtn.addEventListener('click', resetGame);
+    </script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        form {
+            width: 50%;
+            max-width: 400px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        div{
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form id="registroForm">
+        <fieldset>
+            <legend>Registro</legend>
+            <div>
+                <label for="usuario">Nombre de Usuario:</label>
+                <input type="text" id="usuario" name="usuario" required autofocus>
+                <p id="errorNom" class="error"></p>
+            </div>
+            <div>
+                <label for="correo">Correo Electrónico:</label>
+                <input type="email" id="correo" name="correo" required>
+                <p id="errorCorreo" class="error"></p>
+            </div>
+            <div>
+                <label for="contra">Contraseña:</label>
+                <input type="password" id="contra" name="contra">
+                <p id="errorContra" class="error"></p>
+            </div>
+            <div>
+                <label for="repContra">Repetir Contraseña:</label>
+                <input type="password" id="repContra" name="repContra">
+                <p id="errorRepContra" class="error"></p>
+            </div>
+        </fieldset>
+        <div>
+            <input type="submit" id="submit" value="Registrarse">
+        </div> 
+        <p id="ok"></p> 
+        <p id="error"></p>      
+    </form>
+    <script>
+        const formulario = document.getElementById('registroForm');
+        const okMessage = document.getElementById('ok');
+        const errorMessage = document.getElementById('error');
+
+        function nombre() {
+            const nombres = ['ana', 'pepe', 'pancho'];
+            let usuario = document.getElementById('usuario').value.toLowerCase();
+            if (usuario.length < 5) {
+                document.getElementById('errorNom').innerText = 'El nombre de usuario debe tener al menos 5 caracteres';
+                return false;
+            } else if (nombres.includes(usuario)) {
+                document.getElementById('errorNom').innerText = 'El nombre de usuario ya existe';
+                return false;
+            } else {
+                document.getElementById('errorNom').innerText = '';
+                return true;
+            }
+        }
+
+        function correo() {
+            let correo = document.getElementById('correo').value;
+            if (!correo.includes('@')) {
+                document.getElementById('errorCorreo').innerText = 'El correo electrónico debe tener un @';
+                return false;
+            } else {
+                document.getElementById('errorCorreo').innerText = '';
+                return true;
+            }
+        }
+
+        function contrasenia() {
+            let contra = document.getElementById('contra').value;
+            if (contra.length < 8) {
+                document.getElementById('errorContra').innerText = 'La contraseña debe tener al menos 8 caracteres';
+                return false;
+            } else {
+                document.getElementById('errorContra').innerText = '';
+                return true;
+            }
+        }
+
+        function repContrasenia() {
+            let contra = document.getElementById('contra').value;
+            let repContra = document.getElementById('repContra').value;
+            if (contra !== repContra) {
+                document.getElementById('errorRepContra').innerText = 'Las contraseñas no coinciden';
+                return false;
+            } else {
+                document.getElementById('errorRepContra').innerText = '';
+                return true;
+            }
+        }
+
+        formulario.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const esNombreValido = nombre();
+            const esCorreoValido = correo();
+            const esContraValida = contrasenia();
+            const esRepContraValida = repContrasenia();
+
+            if (esNombreValido && esCorreoValido && esContraValida && esRepContraValida) {
+                enviarDatos({
+                    usuario: document.getElementById('usuario').value,
+                    correo: document.getElementById('correo').value,
+                    contrasena: document.getElementById('contra').value
+                });
+            }
+        });
+
+        function enviarDatos(datos) {
+            fetch('https://jsonplaceholder.typicode.com/posts', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(datos)
+            })
+            .then(response => {
+                if (response.ok) {
+                    okMessage.textContent = 'Registro exitoso!';
+                    errorMessage.textContent = '';
+                } else {
+                    throw new Error('Error en el envío de datos');
+                }
+            })
+            .catch(error => {
+                okMessage.textContent = '';
+                errorMessage.textContent = `Error: ${error.message}`;
+            });
+        }
+    </script>
+</body>
+</html>

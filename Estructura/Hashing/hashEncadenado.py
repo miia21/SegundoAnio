@@ -7,8 +7,8 @@ class tablaHashing:
 
     def __init__(self):
         self.__M = 337
-        self.__tabla = np.full(self.__M, None, dtype=nodo)
-
+        self.__tabla = np.array([nodo(None) for _ in range(self.__M)], dtype=object)
+    
     def hashDiv(self, key):
         return key % self.__M
 
@@ -42,36 +42,23 @@ class tablaHashing:
 
     def insert(self, key):
         index = self.hashDiv(key)
-        if self.__tabla[index].getSig() == None:
-            self.__tabla[index] = key
-        else:
-
-            i = 1
-            while i < self.__M:
-                newIndex = (index + i) % self.__M
-                if self.__tabla[newIndex] == None:
-                    self.__tabla[newIndex] = key
-                    break
-                i += 1
+        nuevoNodo = nodo(key)
+        nuevoNodo.setSiguiente(self.__tabla[index].getSiguiente())
+        self.__tabla[index].setSiguiente(nuevoNodo)
     
     def search(self, key):
         index = self.hashDiv(key)
-        longi=1
-        if self.__tabla[index] == key:
-            print("Se encontro el valor, en la posicion: ", index+1)
-            print("Longitud de la busqueda: ", longi)
-        else:
-            i = 1
-            while i < self.__M:
-                newIndex = (index + i) % self.__M
-                longi+=1
-                if self.__tabla[newIndex] == key:
-                    print("Se encontro el valor, en la posicion: ", newIndex+1)
-                    print("Longitud de la busqueda: ", longi)
-                i += 1
-            if i > self.__M:
-                print("No se encontro el valor")
+        longi = 1
+        aux = self.__tabla[index].getSiguiente()
+        while aux is not None:
+            if aux.getObjeto() == key:
+                print("Se encontro el valor, en la posicion: ", index + 1)
                 print("Longitud de la busqueda: ", longi)
+                return
+            aux = aux.getSiguiente()
+            longi += 1
+        print("No se encontro el valor")
+        print("Longitud de la busqueda: ", longi)
     
     def display(self):
         for i in range(self.__M):
