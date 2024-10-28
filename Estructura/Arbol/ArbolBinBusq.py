@@ -85,7 +85,72 @@ class arbolBinBusq:
                 aux=aux.getDerecha()
             else:
                 aux=aux.getIzquierda()
-        return None
+        print('No se encontro el elemento')
+
+    def altura(self, aux):
+        if aux==None:
+            return 0
+        else:
+            return 1+max(self.altura(aux.getIzquierda()), self.altura(aux.getDerecha()))
+        
+    def nivel(self, x):
+        if self.__raiz==None:
+            print('El arbol esta vacio')
+        else:
+            aux=self.__raiz
+            nivel=0
+            while aux!=None:
+                if x==aux.getObjeto():
+                    return nivel
+                nivel+=1
+                if x>aux.getObjeto():
+                    aux=aux.getDerecha()
+                else:
+                    aux=aux.getIzquierda()
+            return -1
+    
+    def hojas(self, aux):
+        if self.__raiz==None:
+            print('El arbol esta vacio')
+        else:
+            x=False
+            if aux.getIzquierda()==None and aux.getDerecha()==None:
+                x=True
+                return x
+            else:
+                return x
+        
+    def hijo(self, auxHijo, auxPadre):
+        if self.__raiz==None:
+            print('El arbol esta vacio')
+        else:
+            x=False
+            if auxPadre.getIzquierda()==auxHijo or auxPadre.getDerecha()==auxHijo:
+                x=True
+                return x
+            else:
+                return x
+            
+    def padre(self, auxPadre, auxHijo):
+        return self.hijo(auxHijo, auxPadre)
+        
+    def camino(self, x, y):
+        if self.__raiz==None:
+            print('El arbol esta vacio')
+        else:
+            aux=self.busqueda(x)
+            camino=[]
+            while aux!=None:
+                if aux.getObjeto()==y:
+                    camino.append(aux.getObjeto())
+                    return camino
+                elif y>aux.getObjeto():
+                    camino.append(aux.getObjeto())
+                    aux=aux.getDerecha()
+                else:
+                    camino.append(aux.getObjeto())
+                    aux=aux.getIzquierda()
+            print('No se encontro el elemento')
 
     def inorden(self, aux):
         if aux!=None:
@@ -104,14 +169,6 @@ class arbolBinBusq:
             self.postorden(aux.getIzquierda())
             self.postorden(aux.getDerecha())
             print(aux.getObjeto(), end=' ')
-
-    def altura(self, aux):
-        if aux==None:
-            return 0
-        else:
-            return 1+max(self.altura(aux.getIzquierda()), self.altura(aux.getDerecha()))
-        
-    
 
     def visualizar(self):
         dot = Digraph() # crea el objeto
