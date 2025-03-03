@@ -46,9 +46,9 @@ class tablaHashing:
         else:
             i = 1
             while i < self.__M:
-                newIndex = (index + i) % self.__M
-                if self.__tabla[newIndex] == None:
-                    self.__tabla[newIndex] = key
+                nuevoIndex = (index + i) % self.__M
+                if self.__tabla[nuevoIndex] == None:
+                    self.__tabla[nuevoIndex] = key
                     break
                 i += 1
     
@@ -61,10 +61,10 @@ class tablaHashing:
         else:
             i = 1
             while i < self.__M:
-                newIndex = (index + i) % self.__M
+                nuevoIndex = (index + i) % self.__M
                 longi+=1
-                if self.__tabla[newIndex] == key:
-                    print("Se encontro el valor, en la posicion: ", newIndex+1)
+                if self.__tabla[nuevoIndex] == key:
+                    print("Se encontro el valor, en la posicion: ", nuevoIndex+1)
                     print("Longitud de la busqueda: ", longi)
                 i += 1
             if i > self.__M:

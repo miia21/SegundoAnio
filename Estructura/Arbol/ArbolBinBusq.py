@@ -34,7 +34,7 @@ class arbolBinBusq:
     def suprimir(self, x):
         aux=self.__raiz
         padre=None
-        while aux!=None:
+        while aux!=None:               ##busca el nodo a eliminar
             if x==aux.getObjeto():
                 break
             padre=aux
@@ -42,18 +42,18 @@ class arbolBinBusq:
                 aux=aux.getDerecha()
             else:
                 aux=aux.getIzquierda()
-        if aux==None:
+        if aux==None:                   ##si no lo encuentra
             return
-        if aux.getDerecha()==None and aux.getIzquierda()==None:
+        if aux.getDerecha()==None and aux.getIzquierda()==None:     ##si es hoja
             if padre==None:
                 self.__raiz=None
-            else:
+            else:  
                 if x>padre.getObjeto():
                     padre.setDerecha(None)
                 else:
                     padre.setIzquierda(None)
-        elif aux.getDerecha()==None or aux.getIzquierda()==None:
-            if aux.getDerecha()==None:
+        elif aux.getDerecha()==None or aux.getIzquierda()==None:        ##si tiene un hijo
+            if aux.getDerecha()==None:          
                 hijo=aux.getIzquierda()
             else:
                 hijo=aux.getDerecha()
@@ -64,7 +64,7 @@ class arbolBinBusq:
                     padre.setDerecha(hijo)
                 else:
                     padre.setIzquierda(hijo)
-        else:
+        else:                                   ##si tiene dos hijos
             padre=aux
             sucesor=aux.getDerecha()
             while sucesor.getIzquierda()!=None:
@@ -77,15 +77,16 @@ class arbolBinBusq:
                 padre.setIzquierda(sucesor.getDerecha())
 
     def busqueda(self, x):
-        aux=self.__raiz
-        while aux!=None:
-            if x==aux.getObjeto():
+        aux = self.__raiz
+        while aux is not None:
+            if x == aux.getObjeto():
                 return aux
-            elif x>aux.getObjeto():
-                aux=aux.getDerecha()
+            elif x > aux.getObjeto():
+                aux = aux.getDerecha()
             else:
-                aux=aux.getIzquierda()
+                aux = aux.getIzquierda()
         print('No se encontro el elemento')
+        return None
 
     def altura(self, aux):
         if aux==None:
@@ -110,15 +111,12 @@ class arbolBinBusq:
             return -1
     
     def hojas(self, aux):
-        if self.__raiz==None:
-            print('El arbol esta vacio')
+        if aux is None:
+            return []
+        if aux.getIzquierda() is None and aux.getDerecha() is None:
+            return [aux.getObjeto()]
         else:
-            x=False
-            if aux.getIzquierda()==None and aux.getDerecha()==None:
-                x=True
-                return x
-            else:
-                return x
+            return self.hojas(aux.getIzquierda()) + self.hojas(aux.getDerecha())
         
     def hijo(self, auxHijo, auxPadre):
         if self.__raiz==None:
@@ -135,22 +133,19 @@ class arbolBinBusq:
         return self.hijo(auxHijo, auxPadre)
         
     def camino(self, x, y):
-        if self.__raiz==None:
+        if self.__raiz is None:
             print('El arbol esta vacio')
+            return []
         else:
-            aux=self.busqueda(x)
-            camino=[]
-            while aux!=None:
-                if aux.getObjeto()==y:
-                    camino.append(aux.getObjeto())
+            aux = self.busqueda(x)
+            camino = []
+            while aux is not None:
+                camino.append(aux.getObjeto())
+                if aux.getObjeto() == y:
                     return camino
-                elif y>aux.getObjeto():
-                    camino.append(aux.getObjeto())
-                    aux=aux.getDerecha()
-                else:
-                    camino.append(aux.getObjeto())
-                    aux=aux.getIzquierda()
+                aux = aux.getDerecha() if y > aux.getObjeto() else aux.getIzquierda()
             print('No se encontro el elemento')
+            return []
 
     def inorden(self, aux):
         if aux!=None:

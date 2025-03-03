@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: black;
+        }
+
+        #sky {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+        
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: blink 2s infinite ease-in-out;
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="sky"></div>
+    <script>
+        const sky = document.getElementById("sky");
+        const numStars = 100;
+
+        for (let i = 0; i < numStars; i++) {
+        const star = document.createElement("div");
+        star.className = "star";
+        star.style.width = `${Math.random() * 3 + 1}px`;
+        star.style.height = star.style.width;
+        star.style.left = `${Math.random() * 100}vw`;
+        star.style.top = `${Math.random() * 100}vh`;
+        star.style.animationDuration = `${Math.random() * 3 + 1}s`;
+        sky.appendChild(star);
+        }
+    </script>
+</body>
+</html>

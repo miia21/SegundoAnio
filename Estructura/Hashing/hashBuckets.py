@@ -1,4 +1,3 @@
-from claseNodo import nodo
 import numpy as np
 
 class tablaHashing:
@@ -48,41 +47,38 @@ class tablaHashing:
 
     def insert(self, key):
         index = self.hashDiv(key)
-        bucket=self.__tabla[index]
-        for i in range(self.__b):
-            if bucket[i]==None:
-                bucket[i]=key
-                return
-        if self.__i<len(self.__overflow):
-            self.__overflow[self.__i]=key
-            self.__i+=1
+        if self.__ocupados[index] < self.__b:
+            self.__tabla[index][self.__ocupados[index]] = key
+            self.__ocupados[index] += 1
+            return
+        if self.__i < len(self.__overflow):
+            self.__overflow[self.__i] = key
+            self.__i += 1
         else:
             print("No hay espacio para insertar el valor")
     
     def search(self, key):
         index = self.hashDiv(key)
-        bucket=self.__tabla[index]
-        longi=1
-        for i in range(self.__b):
-            if bucket[i]==key:
-                print("Se encontro el valor, en la posicion: ", index+1)
-                print("Longitud de la busqueda: ", longi)
+        longi = 1
+        for i in range(self.__ocupados[index]):
+            if self.__tabla[index][i] == key:
+                print("Se encontró el valor en el bucket:", index + 1)
+                print("Longitud de la búsqueda:", longi)
                 return
-            longi+=1
+            longi += 1
         for i in range(self.__i):
-            if self.__overflow[i]==key:
-                print("Se encontro el valor, en la posicion: Overflow")
-                print("Longitud de la busqueda: ", longi)
+            if self.__overflow[i] == key:
+                print("Se encontró el valor en el área de overflow")
+                print("Longitud de la búsqueda:", longi)
                 return
-            longi+=1
-        print("No se encontro el valor")
+            longi += 1
+        print("No se encontró el valor")
     
     def display(self):
         print("Área Primaria:")
         for i, bucket in enumerate(self.__tabla):
-            print(f"Bucket {i+1}: {bucket}")
+            print(f"Bucket {i + 1} ({self.__ocupados[i]} ocupados): {bucket}")
         print("\nÁrea de Overflow:")
         for i, entry in enumerate(self.__overflow):
             if entry is not None:
-                bucket_index, key = entry
-                print(f"Overflow {i+1}: Clave {key} en bucket original {bucket_index+1}")
+                print(f"Overflow {i + 1}: Clave {entry}")

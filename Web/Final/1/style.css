@@ -1,0 +1,22 @@
+body{
+    text-align: center;
+    background-color:bisque
+}
+
+#presupuesto input{
+    margin: 10px;
+    padding: 3px;
+}
+
+.resultado-numero{
+    font-size: x-large;
+}
+
+#boton{
+    background-color: green !important;
+    color: white;
+}
+
+#boton:hover{
+    background-color: aqua !important;
+}

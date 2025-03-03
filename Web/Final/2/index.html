@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Formulario de registro</h1>
+    </header>
+    <main>
+        <fieldset>
+            <legend>Registro</legend>
+            <form id="registro">
+                <div class="form-item">
+                    <label for="usuario">Usuario</label>
+                    <input type="text" name="usuario" id="usuario" placeholder="usuario" required>
+                    <p id="errorUs"></p>
+                </div>
+                <div class="form-item">
+                    <label for="contra">Contraseña</label>
+                    <input type="password" name="contra" id="contra" placeholder="contraseña" required>
+                    <p id="errorContra"></p>
+                </div>
+                <div class="form-item">
+                    <label for="repContra">Repetir Contraseña</label>
+                    <input type="password" name="repContra" id="repContra" placeholder="repetir contraseña" required>
+                    <p id="errorRepContra"></p>
+                </div>
+                <div class="form-item">
+                    <input type="submit" value="Registrarse" id="boton">
+                </div>
+            </form>
+        </fieldset>
+        <div id="resultado"></div>
+    </main>
+    <footer>
+        <h2>Programación Web - 2024</h2>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
